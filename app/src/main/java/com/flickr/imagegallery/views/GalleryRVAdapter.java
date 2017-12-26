@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.flickr.imagegallery.R;
@@ -38,7 +39,8 @@ public class GalleryRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public void onBindViewHolder(final RecyclerView.ViewHolder rHolder, int position) {
         final ViewHolder holder = (ViewHolder) rHolder;
         holder.mItem = mValues.get(position);
-        loadMoviePoster(holder.mItem.getMedia().getM(),holder.imageView);
+        holder.uploaderName.setText(holder.mItem.getAuthor());
+        loadPoster(holder.mItem.getMedia().getM(),holder.imageView);
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,7 +51,7 @@ public class GalleryRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         });
     }
 
-    private void loadMoviePoster(String posterUrl, SimpleDraweeView simpleDraweeView) {
+    private void loadPoster(String posterUrl, SimpleDraweeView simpleDraweeView) {
         simpleDraweeView.getHierarchy().setProgressBarImage(new CircleProgressDrawable());
         simpleDraweeView.setImageURI(posterUrl);
     }
@@ -60,8 +62,9 @@ public class GalleryRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         return mValues.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    private class ViewHolder extends RecyclerView.ViewHolder {
         private final View mView;
+        private TextView uploaderName;
         private ImageData mItem;
         private SimpleDraweeView imageView;
 
@@ -69,6 +72,7 @@ public class GalleryRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             super(view);
             mView = view;
             imageView = view.findViewById(R.id.imageView);
+            uploaderName = view.findViewById(R.id.uploaderName);
         }
     }
 }

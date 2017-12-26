@@ -1,14 +1,14 @@
 package com.flickr.imagegallery.views;
 
 
-/**
- * This
- */
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -53,6 +53,15 @@ public class GalleryActivity extends AppCompatActivity implements OnGalleryItemI
         recyclerView = findViewById(R.id.list);
     }
 
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.image_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+
+    }
+
     /**
      * this function receives the key from function presenter
      * @param key - network status value
@@ -90,6 +99,11 @@ public class GalleryActivity extends AppCompatActivity implements OnGalleryItemI
      */
     @Override
     public void onGalleryItemClick(ImageData imageData) {
-
+        Intent intent = new Intent(this,ImageDetailsActivity.class);
+        Bundle data = new Bundle();
+        data.putParcelable("imageData",imageData);
+        data.putString("imageLink",imageData.getMedia().getM());
+        intent.putExtras(data);
+        startActivity(intent);
     }
 }

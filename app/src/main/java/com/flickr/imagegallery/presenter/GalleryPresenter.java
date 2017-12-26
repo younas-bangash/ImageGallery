@@ -14,9 +14,7 @@ import rx.schedulers.Schedulers;
  */
 
 public class GalleryPresenter implements GalleryPresenterInteraction {
-
     private GalleryActivity galleryActivity = null;
-
     public GalleryPresenter(GalleryActivity galleryActivity) {
         this.galleryActivity = galleryActivity;
     }
@@ -31,7 +29,7 @@ public class GalleryPresenter implements GalleryPresenterInteraction {
 
     @Override
     public void getPublicImages() {
-        RetrofitBuilder retrofitBuilder  = new RetrofitBuilder(galleryActivity);
+        RetrofitBuilder retrofitBuilder = new RetrofitBuilder(galleryActivity);
         retrofitBuilder.getApi().getAllPublicImages("json", "1")
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())

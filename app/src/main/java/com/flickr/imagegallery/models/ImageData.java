@@ -1,5 +1,8 @@
 package com.flickr.imagegallery.models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -7,7 +10,7 @@ import com.google.gson.annotations.SerializedName;
  * Created by YounasBangash on 12/26/2017.
  */
 
-public class ImageData {
+public class ImageData implements Parcelable{
 
     @SerializedName("title")
     @Expose
@@ -36,6 +39,29 @@ public class ImageData {
     @SerializedName("tags")
     @Expose
     private String tags;
+
+    protected ImageData(Parcel in) {
+        title = in.readString();
+        link = in.readString();
+        dateTaken = in.readString();
+        description = in.readString();
+        published = in.readString();
+        author = in.readString();
+        authorId = in.readString();
+        tags = in.readString();
+    }
+
+    public static final Creator<ImageData> CREATOR = new Creator<ImageData>() {
+        @Override
+        public ImageData createFromParcel(Parcel in) {
+            return new ImageData(in);
+        }
+
+        @Override
+        public ImageData[] newArray(int size) {
+            return new ImageData[size];
+        }
+    };
 
     public String getTitle() {
         return title;
@@ -71,5 +97,22 @@ public class ImageData {
 
     public String getTags() {
         return tags;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(title);
+        parcel.writeString(link);
+        parcel.writeString(dateTaken);
+        parcel.writeString(description);
+        parcel.writeString(published);
+        parcel.writeString(author);
+        parcel.writeString(authorId);
+        parcel.writeString(tags);
     }
 }

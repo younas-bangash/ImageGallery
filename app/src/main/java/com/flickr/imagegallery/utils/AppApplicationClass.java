@@ -5,7 +5,8 @@ import android.app.Application;
 import com.facebook.drawee.backends.pipeline.Fresco;
 
 /**
- * Created by YounasBangash on 12/26/2017.
+ * Application class which will run when the app start
+ *
  */
 
 public class AppApplicationClass extends Application {

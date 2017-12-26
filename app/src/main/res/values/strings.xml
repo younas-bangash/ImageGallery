@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">ImageGallery</string>
+    <string name="uploaded_by_the_user">Uploaded By The User</string>
+    <string name="title">Title :</string>
+    <string name="dateTaken">Date Taken :</string>
+    <string name="imageDescription">Description</string>
+    <string name="image_details">Image Details</string>
+    <string name="no_title_provided"><![CDATA[<i>No Title Provided</i>]]></string>
+    <string name="public_images">Public Images</string>
+    <string name="ic_search">Search By Tag</string>
+    <string name="ic_save">Save Image</string>
+    <string name="ic_share">Share Image</string>
+    <string name="ic_filter">Filter Result</string>
+    <string name="imageTags">Image Tags</string>
+    <string name="no_tag">No Tag Available</string>
 </resources>
