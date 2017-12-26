@@ -10,5 +10,9 @@ import com.google.gson.annotations.SerializedName;
 public class Media {
     @SerializedName("m")
     @Expose
-    public String m;
+    private String m;
+
+    public String getM() {
+        return m;
+    }
 }

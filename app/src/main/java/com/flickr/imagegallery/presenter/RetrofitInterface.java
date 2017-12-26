@@ -1,7 +1,6 @@
 package com.flickr.imagegallery.presenter;
 
 import com.flickr.imagegallery.models.FlickerData;
-import com.flickr.imagegallery.models.ImageData;
 
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -14,7 +13,7 @@ import rx.Observable;
 
 public interface RetrofitInterface {
 
-    @GET("services/feeds/photos_public.gne?")//format=json&nojsoncallback=1")
-    Observable<FlickerData> getAllPublicImages(@Query("format") String api_key,
-                                               @Query("nojsoncallback") String language);
+    @GET("services/feeds/photos_public.gne?")
+    Observable<FlickerData> getAllPublicImages(@Query("format") String format,
+                                               @Query("nojsoncallback") String nojsoncallback);
 }

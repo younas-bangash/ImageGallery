@@ -5,5 +5,6 @@ package com.flickr.imagegallery.presenter;
  */
 
 public interface GalleryPresenterInteraction {
-    void isConnectedToNetwork(boolean key);
+    void isConnectedToNetwork();
+    void getPublicImages();
 }

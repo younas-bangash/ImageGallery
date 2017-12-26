@@ -11,29 +11,65 @@ public class ImageData {
 
     @SerializedName("title")
     @Expose
-    public String title;
+    private String title;
     @SerializedName("link")
     @Expose
-    public String link;
+    private String link;
     @SerializedName("media")
     @Expose
-    public Media media;
+    private Media media;
     @SerializedName("date_taken")
     @Expose
-    public String dateTaken;
+    private String dateTaken;
     @SerializedName("description")
     @Expose
-    public String description;
+    private String description;
     @SerializedName("published")
     @Expose
-    public String published;
+    private String published;
     @SerializedName("author")
     @Expose
-    public String author;
+    private String author;
     @SerializedName("author_id")
     @Expose
-    public String authorId;
+    private String authorId;
     @SerializedName("tags")
     @Expose
-    public String tags;
+    private String tags;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public Media getMedia() {
+        return media;
+    }
+
+    public String getDateTaken() {
+        return dateTaken;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getPublished() {
+        return published;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public String getAuthorId() {
+        return authorId;
+    }
+
+    public String getTags() {
+        return tags;
+    }
 }
