@@ -16,8 +16,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class RetrofitBuilder {
-
-    public RetrofitInterface mApi;
+    private RetrofitInterface mApi;
     private static Retrofit retrofit;
     private static final String BASE_URL = "https://api.flickr.com/";
 
@@ -35,5 +34,11 @@ public class RetrofitBuilder {
                     .build();
         }
         mApi = retrofit.create(RetrofitInterface.class);
+    }
+
+    public RetrofitInterface getApi(){
+        if(mApi == null)
+            mApi = retrofit.create(RetrofitInterface.class);
+        return mApi;
     }
 }

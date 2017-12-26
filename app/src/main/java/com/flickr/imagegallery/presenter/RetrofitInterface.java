@@ -7,6 +7,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 import rx.Observable;
 
+
 /**
  * Created by YounasBangash on 12/26/2017.
  */
